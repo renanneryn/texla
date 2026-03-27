@@ -97,16 +97,16 @@ const Typewriter = ({ words }: { words: string[] }) => {
 };
 
 const Navbar = () => (
-  <nav className="fixed top-0 left-0 right-0 z-[100] p-8 flex justify-between items-center mix-blend-difference">
+  <nav className="fixed top-0 left-0 right-0 z-[100] p-4 md:p-8 flex justify-between items-center bg-brand-black/50 backdrop-blur-md md:bg-transparent md:backdrop-blur-none md:mix-blend-difference">
     <div className="flex items-center gap-2">
-      <span className="font-mono text-sm tracking-tighter text-white uppercase font-bold">Texla Soluções</span>
+      <span className="font-mono text-xs md:text-sm tracking-tighter text-white uppercase font-bold">Texla Soluções</span>
     </div>
     <div className="hidden md:flex items-center gap-12 text-[10px] font-mono tracking-[0.3em] uppercase text-white/50">
       <a href="#hero" className="hover:text-white transition-colors">Sobre</a>
       <a href="#portfolio" className="hover:text-white transition-colors">Projetos</a>
       <a href="#contact" className="hover:text-white transition-colors">Contato</a>
     </div>
-    <div className="flex items-center gap-6">
+    <div className="flex items-center gap-4 md:gap-6">
       <div className="hidden sm:flex items-center gap-4 text-white/30">
         <a href="#" className="hover:text-white transition-colors"><Code size={16} /></a>
         <a href="#" className="hover:text-white transition-colors"><Layout size={16} /></a>
@@ -218,13 +218,7 @@ const Hero = () => {
         </div>
       </motion.div>
 
-      <div className="absolute bottom-12 left-8 hidden md:block">
-        <span className="font-mono text-[8px] tracking-[0.5em] uppercase text-white/20">
-          SÃO GONÇALO • RJ
-        </span>
-      </div>
-
-      <div className="absolute bottom-12 right-8 hidden md:block">
+      <div className="absolute bottom-8 md:bottom-12 right-8">
         <div className="flex items-center gap-3">
           <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
           <span className="font-mono text-[8px] tracking-[0.5em] uppercase text-white/20">
@@ -350,9 +344,9 @@ const Portfolio = () => {
     : projects.filter(p => p.cat === activeTab);
 
   return (
-    <section id="portfolio" className="py-32 px-8 md:px-24 border-t border-white/5">
-      <div className="flex flex-col md:flex-row justify-between items-baseline mb-24 gap-8">
-        <h2 className="text-6xl md:text-8xl font-display leading-none">Projetos <br /> <span className="italic font-light lowercase text-white/20">Selecionados</span></h2>
+    <section id="portfolio" className="py-24 md:py-32 px-6 md:px-24 border-t border-white/5">
+      <div className="flex flex-col md:flex-row justify-between items-baseline mb-16 md:mb-24 gap-8">
+        <h2 className="text-5xl md:text-8xl font-display leading-none">Projetos <br /> <span className="italic font-light lowercase text-white/20 pr-2">Selecionados</span></h2>
         <div className="font-mono text-[10px] tracking-widest text-white/40 uppercase">
           [{projects.length}] Trabalhos Ativos
         </div>
