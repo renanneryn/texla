@@ -122,19 +122,43 @@ const Navbar = () => (
 
 const Constellation = () => {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
       <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" stopColor="rgba(124, 58, 237, 0.2)" />
+            <stop offset="100%" stopColor="transparent" />
+          </radialGradient>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#glow)" />
         <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
           <circle cx="1" cy="1" r="0.1" fill="white" />
         </pattern>
         <rect width="100%" height="100%" fill="url(#grid)" />
-        {/* Simple lines to simulate constellation */}
-        <line x1="10" y1="20" x2="30" y2="40" stroke="white" strokeWidth="0.05" />
-        <line x1="30" y1="40" x2="20" y2="70" stroke="white" strokeWidth="0.05" />
-        <line x1="20" y1="70" x2="50" y2="80" stroke="white" strokeWidth="0.05" />
-        <line x1="50" y1="80" x2="80" y2="60" stroke="white" strokeWidth="0.05" />
-        <line x1="80" y1="60" x2="70" y2="30" stroke="white" strokeWidth="0.05" />
-        <line x1="70" y1="30" x2="40" y2="10" stroke="white" strokeWidth="0.05" />
+        
+        {/* More detailed constellation lines */}
+        <g stroke="white" strokeWidth="0.03" opacity="0.5">
+          <line x1="10" y1="20" x2="30" y2="40" />
+          <line x1="30" y1="40" x2="20" y2="70" />
+          <line x1="20" y1="70" x2="50" y2="80" />
+          <line x1="50" y1="80" x2="80" y2="60" />
+          <line x1="80" y1="60" x2="70" y2="30" />
+          <line x1="70" y1="30" x2="40" y2="10" />
+          <line x1="40" y1="10" x2="10" y2="20" />
+          <line x1="30" y1="40" x2="70" y2="30" />
+          <line x1="20" y1="70" x2="80" y2="60" />
+          <line x1="40" y1="10" x2="50" y2="80" />
+          <line x1="15" y1="45" x2="85" y2="45" strokeDasharray="1,1" />
+          <line x1="50" y1="5" x2="50" y2="95" strokeDasharray="1,1" />
+        </g>
+
+        {/* Floating nodes */}
+        {[
+          {x: 10, y: 20}, {x: 30, y: 40}, {x: 20, y: 70}, 
+          {x: 50, y: 80}, {x: 80, y: 60}, {x: 70, y: 30}, {x: 40, y: 10}
+        ].map((p, i) => (
+          <circle key={i} cx={p.x} cy={p.y} r="0.4" fill="white" opacity="0.8" />
+        ))}
       </svg>
     </div>
   );
@@ -167,10 +191,10 @@ const Hero = () => {
         <div className="max-w-2xl mx-auto mb-12 min-h-[4em]">
           <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed">
             <Typewriter words={[
-              "Constrói experiências digitais com código limpo e design pensado.",
-              "Da interface ao back-end, transforma ideias em produtos.",
-              "Produtos que funcionam de verdade.",
-              "Tecnologia simples e eficiente para o seu negócio crescer."
+              "Construímos experiências digitais com código limpo e design pensado.",
+              "Da interface ao back-end, transformamos ideias em produtos.",
+              "Criamos produtos que funcionam de verdade.",
+              "Entregamos tecnologia simples e eficiente para o seu negócio crescer."
             ]} />
           </p>
         </div>
